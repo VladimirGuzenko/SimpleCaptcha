@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<title></title>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="capt.js"></script>
+<style>
+	.send_mail_button{
+
+		 border:1px solid #816C4F;-webkit-box-shadow: #d8d05a 0px 1px 0px inset;-moz-box-shadow: #d8d05a 0px 1px 0px inset; box-shadow: #d8d05a 0px 1px 0px inset; -webkit-border-radius: 10px; -moz-border-radius: 10px;border-radius: 10px;font-family:arial, helvetica, sans-serif; padding: 5px 14px 5px 14px; text-decoration:none; display:inline-block;text-shadow: 0px 1px 0 rgba(255,255,255,0.44);font-weight:bold; color: #63460C;
+		 background-color: #F3DC98; background-image: -webkit-gradient(linear, left top, left bottom, from(#F3DC98), to(#D9C488));
+		 background-image: -webkit-linear-gradient(top, #F3DC98, #D9C488);
+		 background-image: -moz-linear-gradient(top, #F3DC98, #D9C488);
+		 background-image: -ms-linear-gradient(top, #F3DC98, #D9C488);
+		 background-image: -o-linear-gradient(top, #F3DC98, #D9C488);
+		 background-image: linear-gradient(to bottom, #F3DC98, #D9C488);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F3DC98, endColorstr=#D9C488);
+	}
+
+	.send_mail_button:hover{
+		 cursor: pointer;
+		 border:1px solid #816C4F;
+		 color: #63460C;
+		 background-color: #eecc6a; background-image: -webkit-gradient(linear, left top, left bottom, from(#eecc6a), to(#cdb161));
+		 background-image: -webkit-linear-gradient(top, #eecc6a, #cdb161);
+		 background-image: -moz-linear-gradient(top, #eecc6a, #cdb161);
+		 background-image: -ms-linear-gradient(top, #eecc6a, #cdb161);
+		 background-image: -o-linear-gradient(top, #eecc6a, #cdb161);
+		 background-image: linear-gradient(to bottom, #eecc6a, #cdb161);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#eecc6a, endColorstr=#cdb161);
+	}
+
+</style>
+</head>
+<BODY>
+
+
+<script type="text/javascript">
+function sendEMail(){
+	var res	= true;
+	res 	= res && capcha_chek(document.getElementById("capthca").value);
+	if(res)
+	{
+	document.getElementById("callbackForm").submit()
+	}
+	else
+	{
+		alert("Заполните все поля правильно!");
+	}
+}
+</script>
+
+<form action="sendmail.php" method="post" id="callbackForm">
+	<div style="line-height: 22px;" id="capt" name="capt">Решите пример:<img style="line-height: 22px;vertical-align: middle;border: solid; border-width:1px; border-color: #816C4F;" src="capt.php?act=image"><input type="text" maxlength="50" name="capthca" id="capthca" class="formBodyCaptchaInput" /></img></div>
+</form>
+<a class="send_mail_button" onclick="sendEMail()">Отправить</a>
+
+</BODY>
+</HTML>
